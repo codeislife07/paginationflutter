@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:paginationflutter/pagination_flutter.dart';
+import 'package:scroll_pagination_flutter/pagination_flutter.dart';
 import 'package:mockito/mockito.dart';
 
 import 'utils/paging_controller_utils.dart';

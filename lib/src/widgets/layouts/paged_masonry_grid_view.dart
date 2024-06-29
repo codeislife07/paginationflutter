@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:paginationflutter/pagination_flutter.dart';
-import 'package:paginationflutter/src/utils/appended_sliver_child_builder_delegate.dart';
+import 'package:scroll_pagination_flutter/pagination_flutter.dart';
+import 'package:scroll_pagination_flutter/src/utils/appended_sliver_child_builder_delegate.dart';
 
 typedef SliverSimpleGridDelegateBuilder = SliverSimpleGridDelegate Function(
   int childCount,

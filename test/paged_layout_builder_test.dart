@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:paginationflutter/pagination_flutter.dart';
-import 'package:paginationflutter/src/widgets/helpers/default_status_indicators/first_page_error_indicator.dart';
-import 'package:paginationflutter/src/widgets/helpers/default_status_indicators/first_page_progress_indicator.dart';
-import 'package:paginationflutter/src/widgets/helpers/default_status_indicators/new_page_error_indicator.dart';
-import 'package:paginationflutter/src/widgets/helpers/default_status_indicators/new_page_progress_indicator.dart';
-import 'package:paginationflutter/src/widgets/helpers/default_status_indicators/no_items_found_indicator.dart';
+import 'package:scroll_pagination_flutter/pagination_flutter.dart';
+import 'package:scroll_pagination_flutter/src/widgets/helpers/default_status_indicators/first_page_error_indicator.dart';
+import 'package:scroll_pagination_flutter/src/widgets/helpers/default_status_indicators/first_page_progress_indicator.dart';
+import 'package:scroll_pagination_flutter/src/widgets/helpers/default_status_indicators/new_page_error_indicator.dart';
+import 'package:scroll_pagination_flutter/src/widgets/helpers/default_status_indicators/new_page_progress_indicator.dart';
+import 'package:scroll_pagination_flutter/src/widgets/helpers/default_status_indicators/no_items_found_indicator.dart';
 
 import 'utils/paging_controller_utils.dart';
 

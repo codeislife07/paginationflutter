@@ -2,7 +2,7 @@ import 'package:paginationdemo/remote/beer_summary.dart';
 import 'package:paginationdemo/remote/remote_api.dart';
 import 'package:paginationdemo/samples/common/beer_list_item.dart';
 import 'package:flutter/material.dart';
-import 'package:paginationflutter/pagination_flutter.dart';
+import 'package:scroll_pagination_flutter/pagination_flutter.dart';
 
 class BeerListView extends StatefulWidget {
   @override

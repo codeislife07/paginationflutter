@@ -3,7 +3,7 @@ import 'package:paginationdemo/remote/remote_api.dart';
 import 'package:paginationdemo/samples/common/beer_list_item.dart';
 import 'package:paginationdemo/samples/common/beer_search_input_sliver.dart';
 import 'package:flutter/material.dart';
-import 'package:paginationflutter/pagination_flutter.dart';
+import 'package:scroll_pagination_flutter/pagination_flutter.dart';
 
 class BeerSliverList extends StatefulWidget {
   @override

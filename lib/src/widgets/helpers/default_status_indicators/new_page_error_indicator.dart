@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paginationflutter/src/widgets/helpers/default_status_indicators/footer_tile.dart';
+import 'package:scroll_pagination_flutter/src/widgets/helpers/default_status_indicators/footer_tile.dart';
 
 class NewPageErrorIndicator extends StatelessWidget {
   const NewPageErrorIndicator({

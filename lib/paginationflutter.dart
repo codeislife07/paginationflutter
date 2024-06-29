@@ -1,4 +1,4 @@
-library paginationflutter;
+library scroll_pagination_flutter;
 
 /// A Calculator.
 class Calculator {

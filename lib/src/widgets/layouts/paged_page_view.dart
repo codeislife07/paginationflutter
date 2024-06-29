@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:paginationflutter/src/utils/appended_sliver_child_builder_delegate.dart';
+import 'package:scroll_pagination_flutter/src/utils/appended_sliver_child_builder_delegate.dart';
 
 import '../../../pagination_flutter.dart';
 

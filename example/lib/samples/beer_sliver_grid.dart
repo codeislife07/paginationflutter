@@ -6,7 +6,7 @@ import 'package:paginationdemo/samples/common/beer_search_input_sliver.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:paginationflutter/pagination_flutter.dart';
+import 'package:scroll_pagination_flutter/pagination_flutter.dart';
 
 class BeerSliverGrid extends StatefulWidget {
   @override

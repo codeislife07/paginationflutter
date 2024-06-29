@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:paginationflutter/src/widgets/helpers/default_status_indicators/first_page_exception_indicator.dart';
+import 'package:scroll_pagination_flutter/src/widgets/helpers/default_status_indicators/first_page_exception_indicator.dart';
 
 class FirstPageErrorIndicator extends StatelessWidget {
   const FirstPageErrorIndicator({

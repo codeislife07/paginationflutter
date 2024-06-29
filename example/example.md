@@ -1,6 +1,6 @@
 # Cookbook
 
-All the snippets are from the [example project](https://github.com/EdsonBueno/paginationflutter/tree/master/example).
+All the snippets are from the [example project](https://github.com/EdsonBueno/scroll_pagination_flutter/tree/master/example).
 
 ## Simple Usage
 
@@ -117,10 +117,10 @@ Widget build(BuildContext context) =>
     );
 ```
 
-Works for both [PagedListView](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedListView-class.html) and [PagedSliverList](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedSliverList-class.html).
+Works for both [PagedListView](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedListView-class.html) and [PagedSliverList](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedSliverList-class.html).
 
 ## Pull-to-Refresh
-Wrap your [PagedListView](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedListView-class.html), [PagedGridView](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedGridView-class.html) or [CustomScrollView](https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html) with a [RefreshIndicator](https://api.flutter.dev/flutter/material/RefreshIndicator-class.html) (from the [material library](https://api.flutter.dev/flutter/material/material-library.html)) and inside [onRefresh](https://api.flutter.dev/flutter/material/RefreshIndicator/onRefresh.html), call `refresh` on your [PagingController](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagingController-class.html):
+Wrap your [PagedListView](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedListView-class.html), [PagedGridView](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedGridView-class.html) or [CustomScrollView](https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html) with a [RefreshIndicator](https://api.flutter.dev/flutter/material/RefreshIndicator-class.html) (from the [material library](https://api.flutter.dev/flutter/material/material-library.html)) and inside [onRefresh](https://api.flutter.dev/flutter/material/RefreshIndicator/onRefresh.html), call `refresh` on your [PagingController](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagingController-class.html):
 
 ```dart
 @override
@@ -143,7 +143,7 @@ Widget build(BuildContext context) =>
 ## Preceding/Following Items
 If you need to place some widgets before or after your list, and expect them to scroll along with the list items, such as a header, footer, search or filter bar, you should use our [Sliver](https://flutter.dev/docs/development/ui/advanced/slivers) widgets.
 
-**Infinite Scroll Pagination** comes with [PagedSliverList](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedSliverList-class.html) and [PagedSliverGrid](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedSliverGrid-class.html), which works almost the same as [PagedListView](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedListView-class.html) or [PagedGridView](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedGridView-class.html), except that they need to be wrapped by a [CustomScrollView](https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html). That allows you to give them siblings, for example:
+**Infinite Scroll Pagination** comes with [PagedSliverList](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedSliverList-class.html) and [PagedSliverGrid](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedSliverGrid-class.html), which works almost the same as [PagedListView](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedListView-class.html) or [PagedGridView](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedGridView-class.html), except that they need to be wrapped by a [CustomScrollView](https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html). That allows you to give them siblings, for example:
 
 ```dart
 @override
@@ -275,7 +275,7 @@ Widget build(BuildContext context) =>
 
 ## Listening to Status Changes
 
-If you need to execute some custom action when the list status changes, such as displaying a dialog/snackbar/toast, or sending a custom event to a BLoC or so, add a status listener to your [PagingController](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagingController-class.html). For example:
+If you need to execute some custom action when the list status changes, such as displaying a dialog/snackbar/toast, or sending a custom event to a BLoC or so, add a status listener to your [PagingController](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagingController-class.html). For example:
 
 ```dart
 @override
@@ -305,7 +305,7 @@ void initState() {
 ```
 
 ## Changing the Invisible Items Threshold
-By default, the package asks a new page when there are 3 invisible items left while the user is scrolling. You can change that number in the [PagingController](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagingController-class.html)'s constructor.
+By default, the package asks a new page when there are 3 invisible items left while the user is scrolling. You can change that number in the [PagingController](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagingController-class.html)'s constructor.
 
 ```dart
 final PagingController<int, BeerSummary> _pagingController =
@@ -383,12 +383,12 @@ class _BeerSliverGridState extends State<BeerSliverGrid> {
 }
 ```
 
-Check out the [example project](https://github.com/EdsonBueno/paginationflutter/tree/master/example) for the complete source code.
+Check out the [example project](https://github.com/EdsonBueno/scroll_pagination_flutter/tree/master/example) for the complete source code.
 
 ## Custom Layout
-In case [PagedListView](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedListView-class.html), [PagedSliverList](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedSliverList-class.html), [PagedGridView](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedGridView-class.html) and [PagedSliverGrid](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedSliverGrid-class.html) doesn't work for you, you should create a new sliver layout.
+In case [PagedListView](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedListView-class.html), [PagedSliverList](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedSliverList-class.html), [PagedGridView](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedGridView-class.html) and [PagedSliverGrid](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedSliverGrid-class.html) doesn't work for you, you should create a new sliver layout.
 
-Creating a new layout is just a matter of using [PagedSliverBuilder](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedSliverBuilder-class.html) and provide it builders for the completed, in progress with error and in progress with loading layouts. For example, take a look at how [PagedSliverGrid](https://pub.dev/documentation/paginationflutter/latest/paginationflutter/PagedSliverGrid-class.html) is built:
+Creating a new layout is just a matter of using [PagedSliverBuilder](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedSliverBuilder-class.html) and provide it builders for the completed, in progress with error and in progress with loading layouts. For example, take a look at how [PagedSliverGrid](https://pub.dev/documentation/scroll_pagination_flutter/latest/scroll_pagination_flutter/PagedSliverGrid-class.html) is built:
 
 ```dart
 @override

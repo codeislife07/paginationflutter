@@ -203,7 +203,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.2"
-  paginationflutter:
+  scroll_pagination_flutter:
     dependency: "direct main"
     description:
       path: ".."

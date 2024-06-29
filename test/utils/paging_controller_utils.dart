@@ -1,4 +1,4 @@
-import 'package:paginationflutter/pagination_flutter.dart';
+import 'package:scroll_pagination_flutter/pagination_flutter.dart';
 
 const firstPageItemList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 

@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:paginationflutter/src/model/paging_status.dart';
+import 'package:scroll_pagination_flutter/src/model/paging_status.dart';
 
 /// The current item's list, error, and next page key state for a paginated
 /// widget.
