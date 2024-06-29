@@ -1,4 +1,3 @@
-
 ## Usage
 
 ```dart
@@ -44,7 +43,7 @@ class _BeerListViewState extends State<BeerListView> {
       PagedListView<int, BeerSummary>(
         pagingController: _pagingController,
         builderDelegate: PagedChildBuilderDelegate<BeerSummary>(
-          itemBuilder: (context, item, index) => BeerListItem(
+          singleitemBuilder: (context, item, index) => BeerListItem(
             beer: item,
           ),
         ),
@@ -58,24 +57,70 @@ class _BeerListViewState extends State<BeerListView> {
 }
 ```
 
-For more usage examples, please take a look at our [cookbook](https://pub.dev/packages/infinite_scroll_pagination/example) or check out the [example project](https://github.com/EdsonBueno/infinite_scroll_pagination/tree/master/example).
+```dart
+class BeerSliverGrid extends StatefulWidget {
+  @override
+  _BeerSliverGridState createState() => _BeerSliverGridState();
+}
 
-## Features
+class _BeerSliverGridState extends State<BeerSliverGrid> {
+  final BeerListingBloc _bloc = BeerListingBloc();
+  final PagingController<int, BeerSummary> _pagingController =
+      PagingController(firstPageKey: 1);
+  late StreamSubscription _blocListingStateSubscription;
 
-- **Architecture-agnostic**: Works with any state management approach, from [setState](https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#setstate) to [BLoC](https://flutter.dev/docs/development/data-and-backend/state-mgmt/options#bloc--rx). Not even [Future](https://api.flutter.dev/flutter/dart-async/Future-class.html) usage is assumed.
+  @override
+  void initState() {
+    _pagingController.addPageRequestListener((pageKey) {
+      _bloc.onPageRequestSink.add(pageKey);
+    });
 
-- **Layout-agnostic**: Out-of-the-box widgets corresponding to [GridView](https://pub.dev/documentation/infinite_scroll_pagination/latest/infinite_scroll_pagination/PagedGridView-class.html), [SliverGrid](https://pub.dev/documentation/infinite_scroll_pagination/latest/infinite_scroll_pagination/PagedSliverGrid-class.html), [ListView](https://pub.dev/documentation/infinite_scroll_pagination/latest/infinite_scroll_pagination/PagedListView-class.html) and [SliverList](https://pub.dev/documentation/infinite_scroll_pagination/latest/infinite_scroll_pagination/PagedSliverList-class.html) – including `.separated` constructors. Not enough? You can [easily create a custom layout](https://pub.dev/packages/infinite_scroll_pagination/example#custom-layout).
+    // We could've used StreamBuilder, but that would unnecessarily recreate
+    // the entire [PagedSliverGrid] every time the state changes.
+    // Instead, handling the subscription ourselves and updating only the
+    // _pagingController is more efficient.
+    _blocListingStateSubscription =
+        _bloc.onNewListingState.listen((listingState) {
+      _pagingController.value = PagingState(
+        nextPageKey: listingState.nextPageKey,
+        error: listingState.error,
+        itemList: listingState.itemList,
+      );
+    });
+    super.initState();
+  }
 
-- **API-agnostic**: By letting you in complete charge of your API calls, **Infinite Scroll Pagination** works with [any pagination strategy](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/).
+  @override
+  Widget build(BuildContext context) => CustomScrollView(
+        slivers: <Widget>[
+          BeerSearchInputSliver(
+            onChanged: (searchTerm) => _bloc.onSearchInputChangedSink.add(
+              searchTerm,
+            ),
+          ),
+          PagedSliverGrid<int, BeerSummary>(
+            pagingController: _pagingController,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 100 / 150,
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 3,
+            ),
+            builderDelegate: PagedChildBuilderDelegate<BeerSummary>(
+              singleitemBuilder: (context, item, index) => CachedNetworkImage(
+                imageUrl: item.imageUrl,
+              ),
+            ),
+          ),
+        ],
+      );
 
-- **Highly customizable**: [You can change everything](https://pub.dev/packages/infinite_scroll_pagination/example#customizing-indicators). Provide your own progress, error and empty list indicators. Too lazy to change? The defaults will cover you.
-
-- **Extensible**: Seamless integration with [pull-to-refresh](https://pub.dev/packages/infinite_scroll_pagination/example#pull-to-refresh), [searching, filtering and sorting](https://pub.dev/packages/infinite_scroll_pagination/example#searchingfilteringsorting).
-
-- **Listen to state changes**: In addition to displaying widgets to inform the current status, such as progress and error indicators, you can also [use a listener](https://pub.dev/packages/infinite_scroll_pagination/example#listening-to-status-changes) to display dialogs/snackbars/toasts or execute any other action.
-
-## API Overview
-
-<p align="center">
-	<img src="https://raw.githubusercontent.com/EdsonBueno/infinite_scroll_pagination/master/docs/assets/api-diagram.png" alt="API Diagram" />
-</p>
+  @override
+  void dispose() {
+    _pagingController.dispose();
+    _blocListingStateSubscription.cancel();
+    _bloc.dispose();
+    super.dispose();
+  }
+}
+```
