@@ -1,0 +1,23 @@
+name: paginationdemo
+description: Sample app for the Infinite Scroll Pagination package.
+publish_to: none
+version: 1.0.0
+
+environment:
+  sdk: '>=2.12.0 <4.0.0'
+
+dependencies:
+  cached_network_image: 
+  flutter:
+    sdk: flutter
+  http: 
+  paginationflutter:
+    path: ../
+  rxdart: 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
