@@ -1,6 +1,6 @@
 name: scroll_pagination_flutter
 description: "As the user scrolls down your screen, pages of things will slowly load and show."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/codeislife07/scroll_pagination_flutter
 
 environment:
