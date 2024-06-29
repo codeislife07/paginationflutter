@@ -8,7 +8,7 @@ class FirstPageExceptionIndicator extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final String message;
+  final String? message;
   final VoidCallback? onTryAgain;
 
   @override
