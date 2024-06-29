@@ -1,7 +1,7 @@
 name: paginationflutter
-description: "A new Flutter package project."
+description: "As the user scrolls down your screen, pages of things will slowly load and show."
 version: 0.0.1
-homepage:
+homepage: https://github.com/codeislife07/paginationflutter
 
 environment:
   sdk: '>=2.14.0 <4.0.0'
